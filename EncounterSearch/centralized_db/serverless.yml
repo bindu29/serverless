@@ -13,8 +13,8 @@ provider:
    runtime: python3.7
    lambdaHashingVersion: 20201221
    deploymentBucket: lambda2129
-   iam:
-      role: arn:aws:iam::237918227349:role/lambda_basic_execution
+  # iam:
+  #    role: arn:aws:iam::237918227349:role/lambda_basic_execution
    apiGateway:
      restApiId: 4t2duf2oz4
      restApiRootResourceId: gvn73p
@@ -30,7 +30,7 @@ provider:
 functions:
   EncounterSearch:
     handler: handler.encounter-superset
-    role: arn:aws:iam::237918227349:role/lambda_basic_execution
+   # role: arn:aws:iam::237918227349:role/lambda_basic_execution
     name: kpi-test-${sls:stage}-encounter-superset
     events:
       - http:
