@@ -38,5 +38,5 @@ functions:
           method: post
           cors: true
           authorizer:
-            name: Authorization
+            name: kpi-dev-authorization
             type: COGNITO_USER_POOLS
