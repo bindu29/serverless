@@ -1,4 +1,4 @@
-service: kpi-udm
+service: kpi-test
 frameworkVersion: '3'
 package:
   exclude:
@@ -17,7 +17,7 @@ provider:
       role: arn:aws:iam::237918227349:role/lambda_basic_execution
    apiGateway:
      restApiId: 4t2duf2oz4
-     restApiRootResourceId: k9a9rg
+     restApiRootResourceId: gvn73p
      restApiResources:
         '/EncounterSearch': post
    logs:
@@ -36,4 +36,7 @@ functions:
       - http:
         path: /
         method: post
-        cors: true   
+        cors: true
+        authorizer:
+            name: Authorization
+            type: COGNITO_USER_POOLS
