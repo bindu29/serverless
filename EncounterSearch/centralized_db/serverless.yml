@@ -31,10 +31,10 @@ functions:
   EncounterSearch:
     handler: ./handler.encounter-superset
     role: arn:aws:iam::237918227349:role/lambda_basic_execution
-   # name: kpi-test-${sls:stage}-encounter-superset
+    name: kpi-test-${sls:stage}-encounter-superset
     events:
       - http:
-          path: /EncounterSearch
+          path: /
           method: post
           cors: true
           #authorizer:
