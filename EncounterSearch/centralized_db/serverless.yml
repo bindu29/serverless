@@ -37,6 +37,6 @@ functions:
         path: /
         method: post
         cors: true
-        authorizer:
-            name: Authorization
-            type: COGNITO_USER_POOLS
+       # authorizer:
+        #    name: Authorization
+         #   type: COGNITO_USER_POOLS
