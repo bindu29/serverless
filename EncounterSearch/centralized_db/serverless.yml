@@ -40,3 +40,4 @@ functions:
           authorizer:
             name: kpi-dev-authorization
             type: COGNITO_USER_POOLS
+            arn: arn:aws:cognito-idp:ap-south-1:237918227349:userpool/ap-south-1_3ZoFY3LZg
