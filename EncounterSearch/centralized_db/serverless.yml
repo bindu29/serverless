@@ -15,11 +15,11 @@ provider:
    deploymentBucket: lambda2129
   # iam:
   #    role: arn:aws:iam::237918227349:role/lambda_basic_execution
-   apiGateway:
-     restApiId: 4t2duf2oz4
-     restApiRootResourceId: gvn73p
-     restApiResources:
-        '/EncounterSearch': post
+  # apiGateway:
+  #   restApiId: 4t2duf2oz4
+  #   restApiRootResourceId: gvn73p
+  #   restApiResources:
+  #      '/EncounterSearch': post
  #  logs:
  #    restApi:
  #    role: arn:aws:iam::237918227349:role/lambda_basic_execution
