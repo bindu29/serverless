@@ -28,7 +28,7 @@ provider:
  #    functionArn: arn:aws:lambda:ap-south-1:237918227349:function:kpi-udm-prod-encounter-superset	 
 functions:
   EncounterSearch:
-    handler: ./handler.encounter-superset
+    handler: lambda_function.lambda_handler
     role: arn:aws:iam::237918227349:role/lambda_basic_execution
     name: kpi-test-${sls:stage}-encounter-superset
     events:
@@ -36,7 +36,7 @@ functions:
           path: /EncounterSearch
           method: post
           cors: true
-          #authorizer:
-          #  name: kpi-dev-authorization
-          #  type: COGNITO_USER_POOLS
-          #  arn: arn:aws:cognito-idp:ap-south-1:237918227349:userpool/ap-south-1_3ZoFY3LZg
+          authorizer:
+            name: kpi-dev-authorization
+            type: COGNITO_USER_POOLS
+            arn: arn:aws:cognito-idp:ap-south-1:237918227349:userpool/ap-south-1_3ZoFY3LZg
