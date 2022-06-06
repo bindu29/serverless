@@ -29,14 +29,14 @@ provider:
  #    functionArn: arn:aws:lambda:ap-south-1:237918227349:function:kpi-udm-prod-encounter-superset	 
 functions:
   EncounterSearch:
-    handler: handler.encounter-superset
+    handler: ./handler.encounter-superset
    # role: arn:aws:iam::237918227349:role/lambda_basic_execution
     name: kpi-test-${sls:stage}-encounter-superset
     events:
       - http:
-        path: /
-        method: post
-        cors: true
+          path: /
+          method: post
+          cors: true
        # authorizer:
         #    name: Authorization
          #   type: COGNITO_USER_POOLS
