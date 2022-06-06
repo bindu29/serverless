@@ -20,13 +20,13 @@ provider:
      restApiRootResourceId: gvn73p
      restApiResources:
         '/EncounterSearch': post
-   logs:
-     restApi:
-     role: arn:aws:iam::237918227349:role/lambda_basic_execution
-   someCustomLambdaAuthorizer:
-     type: request
-     functionName: kpi-udm-prod-encounter-superset
-     functionArn: arn:aws:lambda:ap-south-1:237918227349:function:kpi-udm-prod-encounter-superset	 
+ #  logs:
+ #    restApi:
+ #    role: arn:aws:iam::237918227349:role/lambda_basic_execution
+ #  someCustomLambdaAuthorizer:
+ #    type: request
+ #   functionName: kpi-udm-prod-encounter-superset
+ #    functionArn: arn:aws:lambda:ap-south-1:237918227349:function:kpi-udm-prod-encounter-superset	 
 functions:
   EncounterSearch:
     handler: handler.encounter-superset
