@@ -12,12 +12,12 @@ provider:
    region: us-east-1
    runtime: python3.7
    lambdaHashingVersion: 20201221
-   deploymentBucket: kpi-test-lambda
+   deploymentBucket: lambda2129
    iam:
-      role: arn:aws:iam::527774997072:role/service-role/kpi-dev-inbound-decrypt-role-x94sy5af
+      role: arn:aws:iam::237918227349:role/lambda_basic_execution
    apiGateway:
-     restApiId: c81bx3bn6c
-     restApiRootResourceId: vtq31q
+     restApiId: 4t2duf2oz4
+     restApiRootResourceId: 481haiklk9
  #    restApiResources:
  #       '/EncounterSearch': post
 #   logs:
@@ -30,7 +30,7 @@ provider:
 functions:
   GenerateCCD:
     handler: lambda_function.lambda_handler
-    role: arn:aws:iam::527774997072:role/service-role/kpi-dev-inbound-decrypt-role-x94sy5af
+    role: arn:aws:iam::237918227349:role/lambda_basic_execution
     name: kpi-test-${sls:stage}-GenerateCCD
     events:
       - http:
