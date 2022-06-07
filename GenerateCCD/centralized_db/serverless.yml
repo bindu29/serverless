@@ -1,0 +1,44 @@
+service: kpi-test
+frameworkVersion: '3'
+package:
+  exclude:
+    - ./**
+  include:
+    - es_controller.py
+    - lambda_function.py
+provider:
+   name: aws
+   stage: prod
+   region: us-east-1
+   runtime: python3.7
+   lambdaHashingVersion: 20201221
+   deploymentBucket: kpi-test-lambda
+   iam:
+      role: arn:aws:iam::527774997072:role/service-role/kpi-dev-inbound-decrypt-role-x94sy5af
+   apiGateway:
+     restApiId: c81bx3bn6c
+     restApiRootResourceId: vtq31q
+ #    restApiResources:
+ #       '/EncounterSearch': post
+#   logs:
+#     restApi:
+#     role: role: arn:aws:iam::527774997072:role/service-role/kpi-dev-inbound-decrypt-role-x94sy5af
+#   someCustomLambdaAuthorizer:
+#     type: request
+#     functionName: kpi-udm-prod-encounter-superset
+#    functionArn: arn:aws:lambda:us-east-1:161674638527:function:kpi-udm-prod-encounter-superset	 
+functions:
+  GenerateCCD:
+    handler: lambda_function.lambda_handler
+    role: arn:aws:iam::527774997072:role/service-role/kpi-dev-inbound-decrypt-role-x94sy5af
+    name: kpi-test-${sls:stage}-GenerateCCD
+    events:
+      - http:
+          path: /GenerateCCD
+          method: post
+          cors: true
+          authorizer:
+            name: kpi-dev-authorization
+            type: COGNITO_USER_POOLS
+            arn: arn:aws:cognito-idp:us-east-1:527774997072:userpool/us-east-1_QYPRYHUOv
+        
