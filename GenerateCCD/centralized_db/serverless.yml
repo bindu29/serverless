@@ -13,32 +13,32 @@ provider:
    runtime: python3.7
    lambdaHashingVersion: 20201221
    deploymentBucket: lambda2129
-   iam:
-      role: arn:aws:iam::237918227349:role/lambda_basic_execution
+ #  iam:
+  #    role: arn:aws:iam::237918227349:role/lambda_basic_execution
    apiGateway:
-     restApiId: 9oca7mqyoc
-     restApiRootResourceId: nwik8iby14
+     restApiId: b07sr4owth
+     restApiRootResourceId: zekggxptw5
  #    restApiResources:
  #       '/EncounterSearch': post
 #   logs:
 #     restApi:
 #     role: role: arn:aws:iam::527774997072:role/service-role/kpi-dev-inbound-decrypt-role-x94sy5af
-#   someCustomLambdaAuthorizer:
-#     type: request
-#     functionName: kpi-udm-prod-encounter-superset
-#    functionArn: arn:aws:lambda:us-east-1:161674638527:function:kpi-udm-prod-encounter-superset	 
+   someCustomLambdaAuthorizer:
+     type: request
+     functionName: kpi-test-superset
+    functionArn: arn:aws:lambda:us-east-1:237918227349:function:kpi-test-superset 
 functions:
   GenerateCCD:
     handler: lambda_function.lambda_handler
-    role: arn:aws:iam::237918227349:role/lambda_basic_execution
-    name: kpi-test-${sls:stage}-GenerateCCD
+   # role: arn:aws:iam::237918227349:role/lambda_basic_execution
+    name: kpi-test-GenerateCCD
     events:
       - http:
           path: /GenerateCCD
           method: post
           cors: true
-          authorizer:
-            name: kpi-dev-authorization
-            type: COGNITO_USER_POOLS
-            arn: arn:aws:cognito-idp:us-east-1:527774997072:userpool/us-east-1_QYPRYHUOv
+        #  authorizer:
+        #    name: kpi-dev-authorization
+         #   type: COGNITO_USER_POOLS
+          #  arn: arn:aws:cognito-idp:us-east-1:527774997072:userpool/us-east-1_QYPRYHUOv
         
